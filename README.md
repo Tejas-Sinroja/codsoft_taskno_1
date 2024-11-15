@@ -1,40 +1,91 @@
 # codsoft_taskno_1
-This is the machine learning project of movie genre classification
 
+# Movie Genre Classification Project
 
-# Movie Genre Prediction
+This project aims to classify movies into their respective genres based on their plot summaries. It utilizes machine learning techniques such as TF-IDF vectorization and classification algorithms like Logistic Regression and Naive Bayes to achieve genre classification.
 
-## Overview
-The **Movie Genre Prediction** project aims to predict the genre of a movie based on its description and poster. This system leverages natural language processing (NLP) and computer vision (CV) techniques to analyze textual and visual features. It provides a robust tool for automatic classification, simplifying the process for movie enthusiasts and content managers.
+---
 
-## Objectives
-- Extract and process features from movie posters using computer vision techniques.
-- Process movie descriptions using NLP for semantic understanding.
-- Combine extracted features to achieve accurate predictions.
+## Table of Contents
+1. [Introduction](#introduction)  
+2. [Dataset Overview](#dataset-overview)  
+3. [Data Preprocessing](#data-preprocessing)  
+4. [Model Building](#model-building)  
+5. [Results](#results)  
+6. [Future Scope](#future-scope)  
+7. [Dependencies](#dependencies)  
+8. [Contributor](#contributor)  
 
-## Workflow
-1. **Data Collection**: Gathered movie descriptions and posters.
-   - **link of dataset** : https://www.kaggle.com/datasets/hijest/genre-classification-dataset-imdb
-3. **Preprocessing**:
-   - **Posters**: Resized and normalized for consistent input.
-   - **Descriptions**: Tokenized, cleaned, and converted into word embeddings.
-4. **Model Development**:
-   - Created separate sub-models for poster and description processing.
-   - Merged features from both modalities.
-   - Final prediction using a fully connected neural network.
-5. **Evaluation**: Validated on test data to measure accuracy and reliability.
+---
 
-## Challenges
-- Limited labeled data for training.
-- Balancing feature contributions from visual and textual inputs.
-- Designing an efficient architecture to handle multi-modal data.
+## Introduction  
+Movie Genre Classification is a common problem in natural language processing. By analyzing a movie's plot, we predict its genre using supervised learning techniques. This project processes a dataset of movie plots, applies text preprocessing, and uses machine learning models to classify genres.
 
- ## Future Enhancements
-- **Dataset Expansion**: Incorporate larger and more diverse datasets for better generalization.
-- **Multi-label Prediction**: Enable the system to predict multiple genres for a single movie.
-- **Fine-tuning Models**: Apply transfer learning techniques with pre-trained models for better feature extraction from posters and descriptions.
-- **User Interface**: Develop a web or mobile app for real-time genre prediction based on user-uploaded movie data.
-- **Explainability**: Integrate visualization tools to explain how the model reaches its predictions.
+---
+
+## Dataset Overview  
+- **Training Dataset:** Contains `54,214` entries with the following columns:  
+  - `Title`: The title of the movie.  
+  - `Genre`: The genre of the movie (e.g., Drama, Comedy, Thriller).  
+  - `Plot`: The plot summary of the movie.  
+
+- **Test Dataset:** Contains movie titles and plots but excludes genres.
+- **link of dataset** : https://www.kaggle.com/datasets/hijest/genre-classification-dataset-imdb
+
+---
+
+## Data Preprocessing  
+The following steps are performed to preprocess the data:  
+1. **Removing Stopwords:** Commonly used words like "and", "the", etc., are removed using NLTK's stopwords list.  
+2. **Tokenization:** Movie plots are broken into individual words or tokens.  
+3. **TF-IDF Vectorization:** Text data is transformed into numerical vectors using the TF-IDF method.  
+4. **Cleaning:** Numbers, symbols, and unnecessary characters are removed.  
+
+---
+
+## Model Building  
+The models used in this project include:  
+- **Logistic Regression**  
+- **Multinomial Naive Bayes**  
+
+Both models are trained on the processed TF-IDF features and the corresponding genres.  
+
+---
+
+## Results  
+The performance of the models is evaluated using metrics like:  
+- **Accuracy**  
+- **Classification Report:** Includes precision, recall, and F1-score for each genre.  
+
+The project aims for a robust accuracy by leveraging TF-IDF vectorization and efficient classifiers.
+
+---
+
+## Future Scope  
+This project serves as a baseline for genre classification. Potential future enhancements include:  
+1. **Deep Learning Integration:**  
+   - Implementing neural networks such as LSTMs, GRUs, or Transformers to capture contextual information in plot summaries.  
+2. **Multi-Label Classification:**  
+   - Extending the model to handle movies with multiple genres.  
+3. **Improved Text Representations:**  
+   - Leveraging pre-trained embeddings like GloVe, FastText, or BERT for better text representation.  
+4. **Dataset Expansion:**  
+   - Incorporating additional metadata such as cast, crew, or user reviews to enrich the feature set.  
+5. **Real-Time Prediction System:**  
+   - Deploying the model as a web application for real-time movie genre prediction.  
+
+---
+
+## Dependencies  
+- Python 3.12  
+- pandas  
+- numpy  
+- nltk  
+- sklearn  
+- matplotlib  
+- seaborn  
+
+---
 
 ## Contributor
 - **Tejas Sinroja**: Project development, model design, and implementation. 
